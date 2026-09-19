@@ -35,6 +35,48 @@
 <main class="page">
 
     <!-- ============================================
+         ログイン / 新規登録バー
+    ============================================ -->
+    <section class="auth-card" id="auth-card">
+
+        <!-- ログイン中はこちらを表示 -->
+        <div class="auth-loggedin" id="auth-loggedin" hidden>
+            <img class="auth-avatar" id="auth-avatar" src="img/fox_01.png" alt="自分のアイコン">
+            <p class="auth-greeting" id="auth-greeting">ようこそ！</p>
+            <a class="auth-link" href="mypage.html">マイページ</a>
+            <button type="button" class="auth-link auth-link--button" id="logout-btn">ログアウト</button>
+        </div>
+
+        <!-- 未ログイン時はこちらを表示 -->
+        <div class="auth-loggedout" id="auth-loggedout">
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab is-active" id="tab-login" data-mode="login">ログイン</button>
+                <button type="button" class="auth-tab" id="tab-signup" data-mode="signup">新規登録</button>
+            </div>
+
+            <form id="auth-form">
+                <div class="form-row">
+                    <label for="auth-email">メールアドレス</label>
+                    <input type="email" id="auth-email" required>
+                </div>
+                <div class="form-row">
+                    <label for="auth-password">パスワード</label>
+                    <input type="password" id="auth-password" minlength="6" required>
+                </div>
+                <div class="form-row" id="auth-password-confirm-row" hidden>
+                    <label for="auth-password-confirm">パスワード（確認）</label>
+                    <input type="password" id="auth-password-confirm" minlength="6">
+                </div>
+
+                <p class="form-error" id="auth-error" hidden></p>
+                <p class="form-note" id="auth-note" hidden></p>
+
+                <button type="submit" class="btn-submit" id="auth-submit-btn">ログイン</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- ============================================
          掲示板についての一言案内
     ============================================ -->
     <section class="intro-card">
@@ -54,12 +96,7 @@
             <h2>きみの声を聞かせて！</h2>
         </div>
 
-        <form class="post-form" id="post-form">
-            <div class="form-row">
-                <label for="name">お名前</label>
-                <input type="text" id="name" placeholder="名無しさん" maxlength="50">
-            </div>
-
+        <form class="post-form" id="post-form" hidden>
             <div class="form-row">
                 <label for="message">コメント</label>
                 <textarea id="message" rows="4" placeholder="投稿したい内容を書いてね" maxlength="500"></textarea>
@@ -69,6 +106,8 @@
 
             <button type="submit" class="btn-submit" id="submit-btn">投稿する！</button>
         </form>
+
+        <p class="post-form-locked" id="post-form-locked">投稿するには、上の欄からログインしてください。</p>
     </section>
 
     <!-- ============================================
@@ -92,6 +131,7 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

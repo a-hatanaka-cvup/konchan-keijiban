@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>マイページ - コンちゃん掲示板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero hero--small">
+    <div class="hero-deco hero-deco--circle-yellow"></div>
+    <div class="hero-deco hero-deco--circle-blue"></div>
+    <div class="hero-deco hero-deco--star"></div>
+
+    <div class="hero-inner">
+        <p class="hero-eyebrow">MY PAGE</p>
+        <h1 class="hero-title">マイページ</h1>
+    </div>
+
+    <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z" fill="#FFFBF2"></path>
+    </svg>
+</header>
+
+<main class="page">
+
+    <!-- ログインしていない場合 -->
+    <section class="post-form-card" id="not-logged-in" hidden>
+        <p class="post-form-locked">マイページを見るには、まずログインしてください。</p>
+        <a class="btn-submit btn-link" href="index.html">トップページへ戻る</a>
+    </section>
+
+    <!-- ログイン中の場合 -->
+    <section class="post-form-card" id="mypage-content" hidden>
+        <div class="section-heading">
+            <img class="section-icon" src="img/fox_01.png" alt="きつねのキャラクター">
+            <h2>プロフィール設定</h2>
+        </div>
+
+        <div class="form-row">
+            <label>メールアドレス</label>
+            <p class="mypage-email" id="mypage-email"></p>
+        </div>
+
+        <div class="form-row">
+            <label for="username">ユーザー名</label>
+            <input type="text" id="username" placeholder="名無しさん" maxlength="30">
+        </div>
+
+        <div class="form-row">
+            <label>アイコンを選ぶ</label>
+            <div class="avatar-picker" id="avatar-picker"></div>
+        </div>
+
+        <p class="form-error" id="mypage-error" hidden></p>
+        <p class="form-note" id="mypage-note" hidden></p>
+
+        <button type="button" class="btn-submit" id="save-btn">保存する</button>
+
+        <div class="mypage-links">
+            <a href="index.html">トップページへ戻る</a>
+            <button type="button" class="auth-link auth-link--button" id="logout-btn">ログアウト</button>
+        </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <img class="footer-character" src="img/fox_03.png" alt="きつねのキャラクター">
+    <p>&copy; 2026 ライティングパーク</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script src="auth.js"></script>
+<script src="mypage.js"></script>
+</body>
+</html>

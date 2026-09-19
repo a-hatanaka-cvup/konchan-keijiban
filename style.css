@@ -142,6 +142,10 @@ img {
     clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
 }
 
+.hero--small {
+    padding: 40px 20px 70px;
+}
+
 /* ---------------------------------------------------------
    共通レイアウト
 --------------------------------------------------------- */
@@ -169,12 +173,107 @@ img {
 }
 
 /* ---------------------------------------------------------
-   イントロカード（吹き出し紹介）
+   ログイン / 新規登録カード
 --------------------------------------------------------- */
-.intro-card {
+.auth-card {
     margin-top: -50px;
     position: relative;
     z-index: 3;
+    background: var(--card-bg);
+    border: 3px solid var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 22px;
+    box-shadow: var(--shadow-hard);
+    margin-bottom: 28px;
+}
+
+.auth-tabs {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 18px;
+}
+
+.auth-tab {
+    flex: 1;
+    padding: 10px;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 800;
+    color: var(--ink);
+    background: #FFFDF7;
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    cursor: pointer;
+    opacity: 0.55;
+}
+
+.auth-tab.is-active {
+    opacity: 1;
+    background: var(--v-yellow);
+}
+
+.form-note {
+    margin: -6px 0 14px;
+    color: var(--v-green);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.auth-loggedin {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.auth-loggedin[hidden] {
+    display: none;
+}
+
+.auth-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    border: 3px solid var(--ink);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.auth-greeting {
+    margin: 0;
+    font-weight: 800;
+    flex: 1;
+    min-width: 120px;
+}
+
+.auth-link {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--v-orange-deep);
+    text-decoration: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.auth-link--button {
+    color: var(--v-pink);
+}
+
+.post-form-locked {
+    text-align: center;
+    color: #9A897B;
+    font-weight: 700;
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* ---------------------------------------------------------
+   イントロカード（吹き出し紹介）
+--------------------------------------------------------- */
+.intro-card {
     display: flex;
     align-items: flex-end;
     gap: 8px;
@@ -327,6 +426,8 @@ img {
 
 .post-card {
     position: relative;
+    display: flex;
+    gap: 12px;
     background: #FFFFFF;
     border: 3px solid var(--ink);
     border-radius: var(--radius-md);
@@ -339,6 +440,20 @@ img {
 .post-card--blue   { border-top-color: var(--v-blue); }
 .post-card--pink   { border-top-color: var(--v-pink); }
 .post-card--green  { border-top-color: var(--v-green); }
+
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--ink);
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.post-card-text {
+    flex: 1;
+    min-width: 0;
+}
 
 .post-card-head {
     display: flex;
@@ -379,13 +494,61 @@ img {
 }
 
 /* ---------------------------------------------------------
+   マイページ
+--------------------------------------------------------- */
+.mypage-email {
+    margin: 0;
+    font-weight: 700;
+}
+
+.avatar-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.avatar-option {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    object-fit: cover;
+    cursor: pointer;
+    background: #FFFDF7;
+}
+
+.avatar-option.is-selected {
+    border-color: var(--v-blue);
+    box-shadow: 3px 3px 0px var(--ink);
+}
+
+.btn-link {
+    text-decoration: none;
+    text-align: center;
+}
+
+.mypage-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 18px;
+}
+
+.mypage-links a {
+    font-weight: 700;
+    color: var(--v-orange-deep);
+    text-decoration: none;
+}
+
+/* ---------------------------------------------------------
    レスポンシブ
 --------------------------------------------------------- */
 @media (max-width: 480px) {
     .hero {
         padding: 44px 16px 80px;
     }
-    .post-form-card {
+    .post-form-card,
+    .auth-card {
         padding: 20px;
     }
     .intro-card {
