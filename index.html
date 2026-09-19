@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コンちゃん掲示板</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============================================
+     ヘッダー
+============================================ -->
+<header class="hero">
+    <div class="hero-deco hero-deco--circle-yellow"></div>
+    <div class="hero-deco hero-deco--circle-blue"></div>
+    <div class="hero-deco hero-deco--star"></div>
+
+    <div class="hero-inner">
+        <p class="hero-eyebrow">MOMO STA COMMUNITY BOARD</p>
+        <h1 class="hero-title">コンちゃん掲示板</h1>
+        <p class="hero-sub">みんなの「言いたい」を、ぽーんと投稿しよう！</p>
+    </div>
+
+    <img class="hero-character" src="img/01kon旗なし.png" alt="ジャンプして喜ぶきつねのキャラクター">
+
+    <svg class="hero-wave" viewBox="0 0 1440 120" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,64 C240,120 480,0 720,32 C960,64 1200,120 1440,64 L1440,120 L0,120 Z" fill="#FFFBF2"></path>
+    </svg>
+</header>
+
+<main class="page">
+
+    <!-- ============================================
+         掲示板についての一言案内
+    ============================================ -->
+    <section class="intro-card">
+        <img class="intro-character" src="img/01konさしぼう.png" alt="説明するきつねのキャラクター">
+        <div class="speech-bubble">
+            <p>ここは<strong>ライティングパーク</strong>のみんなが自由に投稿できる掲示板だよ！<br>
+            名前とコメントを入れて、気軽に投稿してね🍊</p>
+        </div>
+    </section>
+
+    <!-- ============================================
+         投稿フォーム（デザイン確認用・見た目のみ）
+    ============================================ -->
+    <section class="post-form-card">
+        <div class="section-heading">
+            <img class="section-icon" src="img/01kon上.png" alt="指を上に向けるきつねのキャラクター">
+            <h2>きみの声を聞かせて！</h2>
+        </div>
+
+        <form class="post-form">
+            <div class="form-row">
+                <label for="name">お名前</label>
+                <input type="text" id="name" placeholder="名無しさん">
+            </div>
+
+            <div class="form-row">
+                <label for="message">コメント</label>
+                <textarea id="message" rows="4" placeholder="投稿したい内容を書いてね"></textarea>
+            </div>
+
+            <button type="button" class="btn-submit">投稿する！</button>
+        </form>
+    </section>
+
+    <!-- ============================================
+         投稿一覧（サンプル表示）
+    ============================================ -->
+    <section class="post-list-area">
+        <div class="section-heading">
+            <img class="section-icon" src="img/01konきゃわ.png" alt="笑顔のきつねのキャラクター">
+            <h2>みんなの投稿</h2>
+        </div>
+
+        <ul class="post-list">
+            <li class="post-card post-card--orange">
+                <div class="post-card-head">
+                    <span class="post-name">みかんちゃん</span>
+                    <span class="post-date">2026-09-18 21:03</span>
+                </div>
+                <p class="post-body">はじめまして！このキャラクター、めちゃくちゃ可愛いですね🧡</p>
+            </li>
+
+            <li class="post-card post-card--blue">
+                <div class="post-card-head">
+                    <span class="post-name">なな</span>
+                    <span class="post-date">2026-09-18 20:47</span>
+                </div>
+                <p class="post-body">次のイベントいつですか？楽しみにしてます！</p>
+            </li>
+
+            <li class="post-card post-card--pink">
+                <div class="post-card-head">
+                    <span class="post-name">名無しさん</span>
+                    <span class="post-date">2026-09-18 19:30</span>
+                </div>
+                <p class="post-body">デザインがポップでかわいい〜✨ 見てるだけで元気出る！</p>
+            </li>
+
+            <li class="post-card post-card--green">
+                <div class="post-card-head">
+                    <span class="post-name">たろう</span>
+                    <span class="post-date">2026-09-18 18:12</span>
+                </div>
+                <p class="post-body">初投稿です、よろしくお願いします🍀</p>
+            </li>
+        </ul>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+    <img class="footer-character" src="img/01konきゃわ.png" alt="きつねのキャラクター">
+    <p>&copy; 2026 ライティングパーク</p>
+</footer>
+
+</body>
+</html>

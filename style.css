@@ -1,0 +1,380 @@
+/* =========================================================
+   ももスタ掲示板 - フロントデザイン（ビタミンカラー / ポップ）
+   ========================================================= */
+
+:root {
+    --v-orange: #FF8A3D;
+    --v-orange-deep: #FF6B00;
+    --v-yellow: #FFCD3C;
+    --v-pink: #FF5C8A;
+    --v-green: #8BC53F;
+    --v-blue: #2FC4D9;
+    --v-purple: #8B5CF6;
+
+    --ink: #3A2B22;          /* 濃い茶〜黒、キャラクターの線画に合わせた色 */
+    --bg: #FFFBF2;           /* ベースの背景色（ビタミンカラーを引き立てる生成り色） */
+    --card-bg: #FFFFFF;
+
+    --radius-lg: 28px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+
+    --shadow-hard: 6px 6px 0px var(--ink);
+    --shadow-hard-sm: 4px 4px 0px var(--ink);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "M PLUS Rounded 1c", "Hiragino Maru Gothic ProN", "Yu Gothic", sans-serif;
+    line-height: 1.8;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* ---------------------------------------------------------
+   ヘッダー（ヒーローエリア）
+--------------------------------------------------------- */
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 56px 20px 90px;
+    background: linear-gradient(120deg, var(--v-orange) 0%, var(--v-pink) 55%, var(--v-yellow) 100%);
+    text-align: center;
+}
+
+.hero-inner {
+    position: relative;
+    z-index: 2;
+}
+
+.hero-eyebrow {
+    margin: 0 0 8px;
+    letter-spacing: 0.12em;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #FFFFFF;
+    opacity: 0.9;
+}
+
+.hero-title {
+    margin: 0;
+    font-size: clamp(2rem, 6vw, 3.2rem);
+    font-weight: 800;
+    color: #FFFFFF;
+    -webkit-text-stroke: 3px var(--ink);
+    text-shadow: 4px 4px 0 var(--ink);
+    letter-spacing: 0.04em;
+}
+
+.hero-sub {
+    margin: 14px 0 0;
+    font-weight: 700;
+    color: #FFFFFF;
+    font-size: 1.05rem;
+    text-shadow: 2px 2px 0 rgba(58, 43, 34, 0.4);
+}
+
+.hero-character {
+    position: relative;
+    z-index: 2;
+    width: 150px;
+    margin: 18px auto 0;
+    filter: drop-shadow(4px 6px 0 rgba(58, 43, 34, 0.25));
+    animation: bounce 2.4s ease-in-out infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.hero-wave {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 90px;
+    z-index: 1;
+}
+
+.hero-deco {
+    position: absolute;
+    z-index: 1;
+    opacity: 0.85;
+}
+
+.hero-deco--circle-yellow {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--v-yellow);
+    border: 3px solid var(--ink);
+    top: 30px;
+    left: 8%;
+}
+
+.hero-deco--circle-blue {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--v-blue);
+    border: 3px solid var(--ink);
+    top: 90px;
+    right: 12%;
+}
+
+.hero-deco--star {
+    width: 34px;
+    height: 34px;
+    background: #FFFFFF;
+    top: 50px;
+    right: 22%;
+    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+
+/* ---------------------------------------------------------
+   共通レイアウト
+--------------------------------------------------------- */
+.page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 20px 60px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+}
+
+.section-icon {
+    width: 48px;
+}
+
+.section-heading h2 {
+    margin: 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+}
+
+/* ---------------------------------------------------------
+   イントロカード（吹き出し紹介）
+--------------------------------------------------------- */
+.intro-card {
+    margin-top: -50px;
+    position: relative;
+    z-index: 3;
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    margin-bottom: 36px;
+}
+
+.intro-character {
+    width: 110px;
+    flex-shrink: 0;
+    filter: drop-shadow(3px 4px 0 rgba(58, 43, 34, 0.2));
+}
+
+.speech-bubble {
+    position: relative;
+    background: #FFFFFF;
+    border: 3px solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 16px 20px;
+    box-shadow: var(--shadow-hard-sm);
+}
+
+.speech-bubble::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    bottom: 22px;
+    width: 0;
+    height: 0;
+    border-top: 10px solid transparent;
+    border-bottom: 10px solid transparent;
+    border-right: 14px solid var(--ink);
+}
+
+.speech-bubble::after {
+    content: "";
+    position: absolute;
+    left: -10px;
+    bottom: 22px;
+    width: 0;
+    height: 0;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 12px solid #FFFFFF;
+}
+
+.speech-bubble p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* ---------------------------------------------------------
+   投稿フォーム
+--------------------------------------------------------- */
+.post-form-card {
+    background: var(--card-bg);
+    border: 3px solid var(--ink);
+    border-radius: var(--radius-lg);
+    padding: 28px;
+    box-shadow: var(--shadow-hard);
+    margin-bottom: 44px;
+}
+
+.form-row {
+    margin-bottom: 18px;
+}
+
+.form-row label {
+    display: block;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 6px;
+    color: var(--v-orange-deep);
+}
+
+.form-row input,
+.form-row textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: inherit;
+    font-size: 1rem;
+    border: 3px solid var(--ink);
+    border-radius: var(--radius-sm);
+    background: #FFFDF7;
+    resize: vertical;
+}
+
+.form-row input:focus,
+.form-row textarea:focus {
+    outline: none;
+    border-color: var(--v-blue);
+    background: #FFFFFF;
+}
+
+.btn-submit {
+    display: block;
+    width: 100%;
+    padding: 14px;
+    font-family: inherit;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #FFFFFF;
+    background: linear-gradient(90deg, var(--v-pink), var(--v-orange-deep));
+    border: 3px solid var(--ink);
+    border-radius: 999px;
+    box-shadow: var(--shadow-hard-sm);
+    cursor: pointer;
+    transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.btn-submit:hover {
+    transform: translate(-2px, -2px);
+    box-shadow: 6px 6px 0px var(--ink);
+}
+
+.btn-submit:active {
+    transform: translate(2px, 2px);
+    box-shadow: 1px 1px 0px var(--ink);
+}
+
+/* ---------------------------------------------------------
+   投稿一覧
+--------------------------------------------------------- */
+.post-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: 16px;
+}
+
+.post-card {
+    position: relative;
+    background: #FFFFFF;
+    border: 3px solid var(--ink);
+    border-radius: var(--radius-md);
+    padding: 16px 18px;
+    box-shadow: var(--shadow-hard-sm);
+    border-top-width: 8px;
+}
+
+.post-card--orange { border-top-color: var(--v-orange); }
+.post-card--blue   { border-top-color: var(--v-blue); }
+.post-card--pink   { border-top-color: var(--v-pink); }
+.post-card--green  { border-top-color: var(--v-green); }
+
+.post-card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 8px;
+}
+
+.post-name {
+    font-weight: 800;
+}
+
+.post-date {
+    font-size: 0.75rem;
+    color: #9A897B;
+}
+
+.post-body {
+    margin: 0;
+    word-break: break-word;
+}
+
+/* ---------------------------------------------------------
+   フッター
+--------------------------------------------------------- */
+.site-footer {
+    text-align: center;
+    padding: 30px 20px 50px;
+    color: #9A897B;
+    font-size: 0.85rem;
+}
+
+.footer-character {
+    width: 64px;
+    margin: 0 auto 8px;
+    opacity: 0.9;
+}
+
+/* ---------------------------------------------------------
+   レスポンシブ
+--------------------------------------------------------- */
+@media (max-width: 480px) {
+    .hero {
+        padding: 44px 16px 80px;
+    }
+    .post-form-card {
+        padding: 20px;
+    }
+    .intro-card {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .speech-bubble::before,
+    .speech-bubble::after {
+        display: none;
+    }
+}
