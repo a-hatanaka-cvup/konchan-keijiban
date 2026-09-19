@@ -294,6 +294,26 @@ img {
     box-shadow: 1px 1px 0px var(--ink);
 }
 
+.btn-submit:disabled {
+    opacity: 0.6;
+    cursor: default;
+    transform: none;
+}
+
+.form-error {
+    margin: -6px 0 14px;
+    color: var(--v-pink);
+    font-weight: 700;
+    font-size: 0.85rem;
+}
+
+.post-list-status {
+    color: #9A897B;
+    font-weight: 700;
+    text-align: center;
+    padding: 20px 0;
+}
+
 /* ---------------------------------------------------------
    投稿一覧
 --------------------------------------------------------- */
