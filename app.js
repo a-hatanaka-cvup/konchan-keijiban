@@ -252,6 +252,14 @@ document.getElementById("tab-login").addEventListener("click", () => setAuthMode
 document.getElementById("tab-signup").addEventListener("click", () => setAuthMode("signup"));
 document.getElementById("auth-form").addEventListener("submit", handleAuthSubmit);
 document.getElementById("logout-btn").addEventListener("click", handleLogout);
+document.getElementById("google-login-btn").addEventListener("click", async () => {
+    const { error } = await signInWithGoogle();
+    if (error) {
+        const errorEl = document.getElementById("auth-error");
+        errorEl.textContent = "Googleログインに失敗しました：" + error.message;
+        errorEl.hidden = false;
+    }
+});
 document.getElementById("post-form").addEventListener("submit", handlePostSubmit);
 
 sb.auth.onAuthStateChange(() => {

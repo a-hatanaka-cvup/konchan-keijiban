@@ -53,3 +53,12 @@ async function signInWithEmail(email, password) {
 async function signOut() {
     return sb.auth.signOut();
 }
+
+async function signInWithGoogle() {
+    return sb.auth.signInWithOAuth({
+        provider: "google",
+        options: {
+            redirectTo: window.location.origin + window.location.pathname.replace(/[^/]+$/, "") + "index.html",
+        },
+    });
+}
